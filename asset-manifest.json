@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/find-inspiration/static/css/main.73fe9547.chunk.css",
-    "main.js": "/find-inspiration/static/js/main.759414d2.chunk.js",
-    "main.js.map": "/find-inspiration/static/js/main.759414d2.chunk.js.map",
+    "main.js": "/find-inspiration/static/js/main.1b3257a8.chunk.js",
+    "main.js.map": "/find-inspiration/static/js/main.1b3257a8.chunk.js.map",
     "runtime-main.js": "/find-inspiration/static/js/runtime-main.f80ff1be.js",
     "runtime-main.js.map": "/find-inspiration/static/js/runtime-main.f80ff1be.js.map",
     "static/js/2.4479effc.chunk.js": "/find-inspiration/static/js/2.4479effc.chunk.js",
     "static/js/2.4479effc.chunk.js.map": "/find-inspiration/static/js/2.4479effc.chunk.js.map",
     "index.html": "/find-inspiration/index.html",
-    "precache-manifest.76a488528d18b22ffd367e8c1b3303c7.js": "/find-inspiration/precache-manifest.76a488528d18b22ffd367e8c1b3303c7.js",
+    "precache-manifest.24cc83c60c44e96c8309706294985f4d.js": "/find-inspiration/precache-manifest.24cc83c60c44e96c8309706294985f4d.js",
     "service-worker.js": "/find-inspiration/service-worker.js",
     "static/css/main.73fe9547.chunk.css.map": "/find-inspiration/static/css/main.73fe9547.chunk.css.map",
     "static/js/2.4479effc.chunk.js.LICENSE.txt": "/find-inspiration/static/js/2.4479effc.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f80ff1be.js",
     "static/js/2.4479effc.chunk.js",
     "static/css/main.73fe9547.chunk.css",
-    "static/js/main.759414d2.chunk.js"
+    "static/js/main.1b3257a8.chunk.js"
   ]
 }
