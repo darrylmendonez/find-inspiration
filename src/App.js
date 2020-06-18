@@ -23,12 +23,11 @@ class App extends Component {
   }
   ROOT = `https://api.unsplash.com/`
   KEY ="?client_id=Ec1n2AKEb00jiprb4C_6LFncc57yZHxst8TYXNPvp7s"
-  PERPAGE = `&per_page=48`
+  PERPAGE = `&per_page=30`
 
   fetchInitialImages = () => {
-    console.log('page = ', this.state.page)
     this.setState({ searchedQuery: 'Curated Collection'})
-    axios.get(`${this.ROOT}photos${this.KEY}${this.PERPAGE}&page=${this.state.page}`)
+    axios.get(`${this.ROOT}photos${this.KEY}${this.PERPAGE}&page=1`)
       .then(res => {
         let results = res.data
         console.log('results = ', results)
@@ -38,12 +37,22 @@ class App extends Component {
       })
   }
 
-  // loadMore = () => {
-  //   this.setState((prevState) => {
-  //     return {page: prevState.page++}
-  //   })
-  //   this.fetchInitialImages(this.state.page)
-  // }
+  loadMore = () => {
+    this.setState((prevState) => {
+      return {page: prevState.page + 1}
+    }, () => {
+      console.log('page = ', this.state.page)
+      this.setState({ searchedQuery: 'Curated Collection'})
+      axios.get(`${this.ROOT}photos${this.KEY}${this.PERPAGE}&page=${this.state.page}`)
+        .then(res => {
+          let results = res.data
+          console.log('results = ', results)
+          this.setState((prevState) => {
+            return { gallery: [...prevState.gallery, ...results] }
+          })
+        })
+    })
+  }
 
   componentDidMount() {
     this.fetchInitialImages(1)
