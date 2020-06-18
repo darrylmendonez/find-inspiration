@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       gallery: [],
       currentQuery: '',
-      searchedQuery: 'Curated Collection',
+      searchedQuery: '',
       page: 1,
       selectedImage: {
         description: '',
@@ -27,6 +27,7 @@ class App extends Component {
 
   fetchInitialImages = () => {
     console.log('page = ', this.state.page)
+    this.setState({ searchedQuery: 'Curated Collection'})
     axios.get(`${this.ROOT}photos${this.KEY}${this.PERPAGE}&page=${this.state.page}`)
       .then(res => {
         let results = res.data
@@ -91,7 +92,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <SearchBar gallery={this.state.gallery} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+      <SearchBar fetchInitialImages={this.fetchInitialImages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <div className="container">
           <h1 className="text-center">{this.state.searchedQuery}</h1>
           <Gallery gallery={this.state.gallery} loadMore={this.loadMore} launchModal={this.launchModal} selectedImage={this.state.selectedImage} />
