@@ -93,7 +93,7 @@ class App extends Component {
       <div className="App">
       <SearchBar gallery={this.state.gallery} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <div className="container">
-          <h1 class="text-center">{this.state.searchedQuery}</h1>
+          <h1 className="text-center">{this.state.searchedQuery}</h1>
           <Gallery gallery={this.state.gallery} loadMore={this.loadMore} launchModal={this.launchModal} selectedImage={this.state.selectedImage} />
         </div>
       </div>
