@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 
 import './styles.css'
 
-class Gallery extends Component {
-
-  render() {
-    const { gallery, loadMore, launchModal, selectedImage } = this.props
+const Gallery = (props) => {
+    const { gallery, loadMore, launchModal, selectedImage } = props
     console.log('gallery = ', gallery)
     return (
       <div className="content">
@@ -42,7 +40,6 @@ class Gallery extends Component {
         </div>
       </div>
     )
-  }
 }
 
 export default Gallery
