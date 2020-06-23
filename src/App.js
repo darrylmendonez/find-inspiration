@@ -64,7 +64,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchInitialImages(1)
+    this.fetchInitialImages()
   }
   
   launchModal = (index) => {
