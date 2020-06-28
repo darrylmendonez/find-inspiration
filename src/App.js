@@ -31,10 +31,23 @@ class App extends Component {
       .then(res => {
         let results = res.data
         console.log('results = ', results)
-        this.setState((prevState) => {
+        this.setState(() => {
           return { gallery: [...results] }
         })
       })
+  }
+  
+  launchModal = (index) => {
+    this.setState((prevState) => {
+      return { 
+        selectedImage: {
+          description: prevState.gallery[index].description,
+          src: prevState.gallery[index].urls.regular,
+          username: prevState.gallery[index].user.username,
+          page: prevState.gallery[index].user.links.html,
+        }
+      }
+    })
   }
 
   loadMore = () => {
@@ -66,27 +79,14 @@ class App extends Component {
   componentDidMount() {
     this.fetchInitialImages()
   }
-  
-  launchModal = (index) => {
-    this.setState((prevState) => {
-      return { 
-        selectedImage: {
-          description: prevState.gallery[index].description,
-          src: prevState.gallery[index].urls.regular,
-          username: prevState.gallery[index].user.username,
-          page: prevState.gallery[index].user.links.html,
-        }
-      }
-    })
-  }
 
-  currentItem
-  handleChangeInitialized = false
-  isCurrentItemInitialized = true
+  // currentItem
+  // handleChangeInitialized = false
+  // isCurrentItemInitialized = true
   handleChange = (e) => {
-    this.handleChangeInitialized = true
-    this.isCurrentItemInitialized = true
-    this.currentItem = this.state.currentQuery
+    // this.handleChangeInitialized = true
+    // this.isCurrentItemInitialized = true
+    // this.currentItem = this.state.currentQuery
     this.setState({
       currentQuery: e.target.value
     })
