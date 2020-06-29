@@ -35,6 +35,7 @@ class App extends Component {
           return { gallery: [...results] }
         })
       })
+      .catch(error => console.log(error))
   }
   
   launchModal = (index) => {
@@ -63,6 +64,7 @@ class App extends Component {
               return { gallery: [...prevState.gallery, ...results] }
             })
           })
+          .catch(error => console.log(error))
       } else {
         axios.get(`${this.ROOT}search/photos${this.KEY}&query=${this.state.currentQuery}${this.PERPAGE}&page=${this.state.page}`)
           .then(res => {
@@ -72,6 +74,7 @@ class App extends Component {
               return { gallery: [...prevState.gallery, ...results] }
             })
           })
+          .catch(error => console.log(error))
       }
     })
   }
@@ -104,6 +107,7 @@ class App extends Component {
           gallery: [...results]
         })
       })
+      .catch(error => console.log(error))
   }
 
 
