@@ -30,7 +30,9 @@ const Gallery = (props) => {
         <div className="modal-dialog modal-lg" role="document">
           <div className="modal-content">
             <div className="modal-body">
-              <img src={selectedImage.src} alt={selectedImage.description} />
+              <div className="img-container">
+                <img src={selectedImage.src} alt={selectedImage.description} className="mx-auto d-block img-fluid high-res-img"/>
+              </div>
               <hr/>
               <p>{selectedImage.description}</p>
               <p>Photo by <a href={selectedImage.page + `?utm_source=find-inspiration`} target="_blank" rel="noopener noreferrer">{selectedImage.username}</a> on <a href="https://unsplash.com/?utm_source=find-inspiration`" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
