@@ -55,26 +55,15 @@ class App extends Component {
     this.setState((prevState) => {
       return {page: prevState.page + 1}
     }, () => {
-      if (this.state.searchedQuery === 'Curated Collection') {
-        axios.get(`${this.ROOT}photos${this.KEY}${this.PERPAGE}&page=${this.state.page}`)
-          .then(res => {
-            let results = res.data
-            this.setState((prevState) => {
-              return { gallery: [...prevState.gallery, ...results] }
-            })
+      axios.get(`${this.ROOT}search/photos${this.KEY}&query=${this.state.searchedQuery}${this.PERPAGE}&page=${this.state.page}`)
+        .then(res => {
+          let results = res.data.results
+          console.log('results = ', results)
+          this.setState((prevState) => {
+            return { gallery: [...prevState.gallery, ...results] }
           })
-          .catch(error => console.log(error))
-      } else {
-        axios.get(`${this.ROOT}search/photos${this.KEY}&query=${this.state.searchedQuery}${this.PERPAGE}&page=${this.state.page}`)
-          .then(res => {
-            let results = res.data.results
-            console.log('results = ', results)
-            this.setState((prevState) => {
-              return { gallery: [...prevState.gallery, ...results] }
-            })
-          })
-          .catch(error => console.log(error))
-      }
+        })
+        .catch(error => console.log(error))
     })
   }
 
