@@ -2,18 +2,13 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-/* .high-res-img {
-  max-height: fit-content;
-} */
-
-/* .modal-dialog,
-.modal-content {
-    max-height: 90%;
-} */
+.bg-pink {
+  background-color: #f2dede;
+}
 
 .high-res-img {
-    /* 100% = dialog height, 120px = header + footer */
     width: auto;
     max-height: calc(100vh - 150px);
     overflow-y: auto;
 }
+

@@ -83,28 +83,23 @@ class App extends Component {
     this.fetchInitialImages()
   }
 
-  // currentItem
-  // handleChangeInitialized = false
-  // isCurrentItemInitialized = true
   handleChange = (e) => {
-    // this.handleChangeInitialized = true
-    // this.isCurrentItemInitialized = true
-    // this.currentItem = this.state.currentQuery
     this.setState({
       currentQuery: e.target.value
     })
   }
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log('currentQuery: ', this.state.currentQuery)
     this.setState((prevState) => {
       return {searchedQuery: prevState.currentQuery}
     })
     axios.get(`${this.ROOT}search/photos${this.KEY}&query=${this.state.currentQuery}${this.PERPAGE}`)
       .then(res => {
         let results = res.data.results
-        console.log('results = ', results)
         this.setState({
-          gallery: [...results]
+          gallery: [...results],
+          currentQuery: '',
         })
       })
       .catch(error => console.log(error))
@@ -114,10 +109,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <SearchBar fetchInitialImages={this.fetchInitialImages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+      <SearchBar fetchInitialImages={this.fetchInitialImages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} currentQuery={this.state.currentQuery} />
         <div className="container">
           <h1 className="text-center">{this.state.searchedQuery}</h1>
-          <Gallery gallery={this.state.gallery} loadMore={this.loadMore} launchModal={this.launchModal} selectedImage={this.state.selectedImage} />
+          <Gallery gallery={this.state.gallery} loadMore={this.loadMore} launchModal={this.launchModal} selectedImage={this.state.selectedImage} currentQuery={this.state.currentQuery} />
         </div>
       </div>
     );
