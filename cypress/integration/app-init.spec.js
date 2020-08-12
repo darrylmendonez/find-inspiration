@@ -5,10 +5,10 @@ const PERPAGE = `&per_page=30`
 describe('App initialization', () => {
   it('loads 30 images on page load', () => {
     cy.seedAndVisit()
-
     cy.get('.grid .item')
       .should('have.length', 30)
   })
+  
   it('displays an error on failure', () => {
     cy.server()
     cy.route({

@@ -3,7 +3,7 @@ import React from 'react'
 import './styles.css'
 
 const Gallery = (props) => {
-  const { gallery, loadMore, launchModal, selectedImage, currentQuery } = props
+  const { gallery, loadMore, launchModal, selectedImage, searchedQuery } = props
   console.log('gallery = ', gallery)
   return (
     <div className="content">
@@ -25,7 +25,7 @@ const Gallery = (props) => {
         )) : (
           <div className="error card text-danger mb-3 mx-auto" style={{maxWidth: '18rem',}}>
             <div className="card-body bg-pink">
-              {currentQuery === '' ? (
+              {searchedQuery === '' ? (
               <p className="card-text">Your entry is not valid. Please try again.</p>
               ) : (
                 <p className="card-text">An error has occured or this app has reached its rate limit allowed by <a href="https://unsplash.com/documentation" target="_blank" rel="noopener noreferrer">Unsplash</a>. Please try again in a few minutes.</p>
